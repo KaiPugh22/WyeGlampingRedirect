@@ -2,8 +2,46 @@
 <meta charset="utf-8">
 <title>Redirecting…</title>
 <link rel="canonical" href="https://wyecabins.co.uk/">
-<meta http-equiv="refresh" content="0; url=https://wyecabins.co.uk/">
 <script>
-  location.replace("https://wyecabins.co.uk/");
+  // Map old wyeglamping.co.uk paths to their closest wyecabins.co.uk page
+  // so link equity and visitors land somewhere relevant, not just the homepage.
+  (function () {
+    var NEW = 'https://wyecabins.co.uk/';
+    var MAP = {
+      'about': '',
+      'home': '',
+      'contact-us': '#contact-section',
+      'activities': 'blog.html?post=things-to-do',
+      'days-out': 'blog.html?post=things-to-do',
+      'local-eateries': 'blog.html?post=where-to-eat',
+      'availability': 'country.html',
+      'book': 'country.html',
+      'prices-booking': 'country.html',
+      'glamping-deals': 'country.html',
+      'whats-included': 'country.html',
+      'during-your-stay': 'country.html',
+      'eco-friendly-camping-facilities': 'country.html',
+      'yurt-holidays': 'country.html',
+      'the-cabin': 'country.html',
+      'starry-meadow': 'country.html',
+      'starry-meadow-glamping': 'country.html',
+      'starry-meadow-has-moved': 'country.html',
+      'location': 'country.html',
+      'how-to-find-us': 'country.html',
+      'hay-festival': 'town.html',
+      'hay-festival-accommodation': 'town.html',
+      'bell-tents': 'town.html',
+      'cookie-policy': 'privacy.html',
+      'privacy-policy': 'privacy.html',
+      'terms-and-conditions': 'terms.html'
+    };
+    var seg = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase();
+    var target = NEW + (MAP.hasOwnProperty(seg) ? MAP[seg] : '');
+    document.write('<meta http-equiv="refresh" content="0; url=' + target + '">');
+    location.replace(target);
+  })();
 </script>
+<noscript>
+  <meta http-equiv="refresh" content="0; url=https://wyecabins.co.uk/">
+</noscript>
 <p>This site has moved to <a href="https://wyecabins.co.uk/">wyecabins.co.uk</a>.</p>
